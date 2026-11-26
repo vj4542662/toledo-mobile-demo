@@ -207,6 +207,9 @@ svg.pm { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-wid
 .hsr .t + span { flex: 1; min-width: 0; }
 .hsr small { display: block; color: #8e8e93; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
+.must { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; align-items: start; background: var(--warm-tint); border: 1.5px solid var(--warm); border-radius: 16px; padding: 13px 14px; font-size: 15px; line-height: 1.45; }
+.must b { display: block; font-size: 16px; margin-bottom: 2px; }
+.must .mi1 { width: 30px; height: 30px; border-radius: 50%; background: var(--warm); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 17px; }
 /* done */
 .finish { display: none; text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px 18px; margin-top: 14px; gap: 10px; }
 .finish.on { display: grid; }
@@ -283,20 +286,21 @@ footer p { margin: 0; }
     <ol class="steps" id="steps">
       <!-- 1 -->
       <li class="step" data-step="1">
-        <button class="head" type="button" aria-expanded="false"><span class="num">1</span><span><b>Download de app Userscripts</b><small>ongeveer 1 minuut</small></span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+        <button class="head" type="button" aria-expanded="false"><span class="num">1</span><span><b>Download en open Userscripts</b><small>ongeveer 1 minuut</small></span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
         <div class="body">
           <p class="why">Userscripts is een gratis app die kleine extraatjes toevoegt aan Safari. Toledo Mobile is zo'n extraatje. Je hebt de app maar één keer nodig.</p>
           <a class="act" href="https://apps.apple.com/app/userscripts/id1463298887" data-go="1"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Open in de App Store</a>
           <ol class="do">
             <li><span>Tik in de App Store op <span class="ui">Download</span> (of op het wolkje).</span></li>
-            <li><span>Open de app <b>één keer</b> en sluit hem weer. Je hoeft er niets in te doen.</span></li>
+            <li><span>Tik in de App Store op <span class="ui">Open</span>, zodat Userscripts <b>één keer</b> opent.</span></li>
             <li><span>Kom terug naar Safari. Deze pagina staat nog open.</span></li>
           </ol>
+          <div class="must"><span class="mi1">!</span><span><b>Belangrijk: open Userscripts één keer</b>Alleen downloaden is niet genoeg. Open de app één keer, anders kan je hem in stap 2 niet aanzetten. Je hoeft er verder niets in te doen: openen en weer sluiten is genoeg.</span></div>
           <div class="mock" aria-hidden="true"><p class="cap">Zo ziet het eruit</p>
             <div class="grp"><div class="r app"><span class="aic">&lt;/&gt;</span><span><b>Userscripts</b><small>Justin Wasack</small></span><span class="get">Download</span></div></div>
           </div>
-          <div class="ask"><p>Gelukt om Userscripts te downloaden?</p><div class="two"><button class="yes" type="button">Ja, gelukt</button><button class="no" type="button">Nog niet</button></div></div>
-          <button class="next" type="button">Gedaan, naar stap 2</button>
+          <div class="ask"><p>Heb je Userscripts gedownload én één keer geopend?</p><div class="two"><button class="yes" type="button">Ja, gelukt</button><button class="no" type="button">Nog niet</button></div></div>
+          <button class="next" type="button">Geopend, naar stap 2</button>
           <details class="help"><summary>Lukt het niet?</summary><ul>
             <li>Opent de App Store niet? Open hem zelf en zoek op <b>Userscripts</b>. Kies die van <b>Justin Wasack</b>.</li>
             <li>Vraagt je iPhone om Face ID of je wachtwoord van je Apple ID? Dat is normaal bij elke download, ook bij gratis apps.</li>
