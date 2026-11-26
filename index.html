@@ -97,7 +97,7 @@ h2 { font-size: 26px; line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.01e
 .head .chev { width: 18px; height: 18px; fill: none; stroke: var(--sub); stroke-width: 2.2; transition: transform .2s; }
 .step.open .head .chev { transform: rotate(180deg); }
 .body { display: none; padding: 0 16px 18px; }
-.step.open .body { display: grid; gap: 14px; }
+.step.open .body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
 .why { margin: 0; color: var(--sub); font-size: 15px; }
 ol.do { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; counter-reset: d; }
 ol.do li { counter-increment: d; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; font-size: 15.5px; line-height: 1.45; }
@@ -138,6 +138,8 @@ details.help ul { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 6px; 
 .mock .v { color: #8e8e93; }
 .mock .hl { box-shadow: 0 0 0 2.5px var(--warm) inset; border-radius: 10px; }
 .tog { width: 44px; height: 26px; border-radius: 99px; background: var(--ios-green); position: relative; flex: none; }
+.tog.off { background: #39393d; }
+.tog.off::after { right: auto; left: 2px; }
 .tog::after { content: ""; position: absolute; right: 2px; top: 2px; width: 22px; height: 22px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25); }
 .mock .gap { height: 10px; }
 .mock .crumbs { font-size: 13px; color: #8e8e93; margin: 0 0 8px; }
@@ -159,6 +161,51 @@ details.help ul { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 6px; 
 .mock .sheet .sh .b { color: var(--ios-blue); }
 .mock .addbar { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #f2f2f7; margin: 0 10px 10px; border-radius: 10px; }
 .mock .addbar img { width: 34px; height: 34px; border-radius: 8px; }
+
+
+.ui.icon { padding: 1px 5px; vertical-align: -3px; }
+svg.pm { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; display: block; }
+.mock.dk { background: #000; border-color: var(--line); }
+.mock .lbl { display: flex; align-items: center; gap: 8px; color: #c7c7cc; font: 700 13px/1.3 var(--font); margin: 14px 0 8px; }
+.mock .lbl:first-of-type { margin-top: 0; }
+.mock .lbl i { font-style: normal; width: 20px; height: 20px; border-radius: 50%; background: #2c2c2e; display: grid; place-items: center; font-size: 11.5px; color: #fff; }
+.urlbar { display: flex; align-items: center; gap: 8px; }
+.urlbar .bk, .urlbar .more { width: 40px; height: 40px; border-radius: 50%; background: #1c1c1e; display: grid; place-items: center; color: #8e8e93; font-weight: 700; flex: none; }
+.urlbar .url { flex: 1; min-width: 0; height: 40px; border-radius: 99px; background: #1c1c1e; display: flex; align-items: center; gap: 8px; padding: 0 12px 0 6px; }
+.urlbar .pmw { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; color: #fff; flex: none; }
+.urlbar .host { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13.5px; }
+.urlbar .rl { color: #8e8e93; }
+.dmenu { background: #1c1c1e; border-radius: 14px; overflow: hidden; }
+.dmenu .mi { display: flex; align-items: center; gap: 12px; padding: 11px 12px; }
+.dmenu .mi + .mi { border-top: .5px solid rgba(255,255,255,.12); }
+.dmenu .mic { width: 22px; text-align: center; color: #c7c7cc; }
+.dmenu .mic.us { color: #0a84ff; font: 800 12px/1 ui-monospace, Menlo, monospace; }
+.usp { background: #2c2c2e; border-radius: 14px; overflow: hidden; }
+.usp + .usp { margin-top: 0; }
+.ush { display: grid; grid-template-columns: 28px 1fr 28px; align-items: center; text-align: center; padding: 10px 10px 6px; }
+.ush .chk { width: 28px; height: 28px; border-radius: 50%; background: #0a84ff; color: #fff; display: grid; place-items: center; font-weight: 800; }
+.ust { display: flex; justify-content: space-between; padding: 4px 14px 8px; color: #c7c7cc; }
+.mtog { display: inline-block; width: 30px; height: 18px; border-radius: 99px; background: #0a84ff; vertical-align: -4px; margin-left: 8px; position: relative; }
+.mtog::after { content: ""; position: absolute; right: 2px; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: #fff; }
+.gbar { background: #8ae67d; color: #1b3a17; text-align: center; font-weight: 700; padding: 9px 8px; font-size: 13.5px; border-radius: 0; }
+.gbar.hl { box-shadow: 0 0 0 2.5px var(--warm) inset; }
+.usn { padding: 6px 14px 10px; font-weight: 600; }
+.mock .usp .code { margin: 0 14px; height: 34px; background: repeating-linear-gradient(#48484a 0 5px, transparent 5px 11px); border-radius: 0; }
+.btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px; }
+.btns span { text-align: center; padding: 9px; border-radius: 10px; font-weight: 700; }
+.btns .cn { background: #8e8e93; color: #fff; }
+.btns .in { background: #0a6ee0; color: #fff; }
+.mock .warn { margin: 12px 0 0; background: #3a1f22; color: #ffd9dc; border-radius: 12px; padding: 10px 12px; font: 600 13.5px/1.4 var(--font); }
+.mock .warn.ok { background: #1e2a22; color: #d6f3e0; }
+.hs { background: #1c1c1e; border-radius: 14px; overflow: hidden; }
+.hsh { display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 8px; padding: 10px 12px; text-align: center; }
+.hsh .x { width: 30px; height: 30px; border-radius: 50%; background: #2c2c2e; display: grid; place-items: center; color: #c7c7cc; font-size: 13px; }
+.hsh .add { background: #0a84ff; color: #fff; font-weight: 700; padding: 6px 12px; border-radius: 99px; font-size: 13.5px; }
+.hsr { display: flex; align-items: center; gap: 12px; padding: 10px 12px; margin: 0 10px 10px; background: #2c2c2e; border-radius: 12px; justify-content: space-between; }
+.hsr.off-ring { box-shadow: 0 0 0 3px #b3122e; border-radius: 99px; }
+.hsr .t { width: 40px; height: 40px; border-radius: 10px; background: #fff; color: #000; display: grid; place-items: center; font-weight: 700; font-size: 18px; flex: none; }
+.hsr .t + span { flex: 1; min-width: 0; }
+.hsr small { display: block; color: #8e8e93; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* done */
 .finish { display: none; text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px 18px; margin-top: 14px; gap: 10px; }
@@ -241,12 +288,12 @@ footer p { margin: 0; }
           <p class="why">Userscripts is een gratis app die kleine extraatjes toevoegt aan Safari. Toledo Mobile is zo'n extraatje. Je hebt de app maar één keer nodig.</p>
           <a class="act" href="https://apps.apple.com/app/userscripts/id1463298887" data-go="1"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Open in de App Store</a>
           <ol class="do">
-            <li><span>Tik in de App Store op <span class="ui">Haal</span> (of op het wolkje).</span></li>
+            <li><span>Tik in de App Store op <span class="ui">Download</span> (of op het wolkje).</span></li>
             <li><span>Open de app <b>één keer</b> en sluit hem weer. Je hoeft er niets in te doen.</span></li>
             <li><span>Kom terug naar Safari. Deze pagina staat nog open.</span></li>
           </ol>
           <div class="mock" aria-hidden="true"><p class="cap">Zo ziet het eruit</p>
-            <div class="grp"><div class="r app"><span class="aic">&lt;/&gt;</span><span><b>Userscripts</b><small>Justin Wasack</small></span><span class="get">Haal</span></div></div>
+            <div class="grp"><div class="r app"><span class="aic">&lt;/&gt;</span><span><b>Userscripts</b><small>Justin Wasack</small></span><span class="get">Download</span></div></div>
           </div>
           <div class="ask"><p>Gelukt om Userscripts te downloaden?</p><div class="two"><button class="yes" type="button">Ja, gelukt</button><button class="no" type="button">Nog niet</button></div></div>
           <button class="next" type="button">Gedaan, naar stap 2</button>
@@ -280,7 +327,7 @@ footer p { margin: 0; }
           <details class="help"><summary>Lukt het niet?</summary><ul>
             <li>Geen <b>Apps</b> in je Instellingen? Dan heb je een oudere iOS. Ga dan naar <b>Instellingen › Safari › Extensies</b>.</li>
             <li>Staat Userscripts niet in de lijst met extensies? Open de app Userscripts eerst één keer (stap 1) en kijk opnieuw.</li>
-            <li>Ook goed: in Safari op <span class="ui">aA</span> (of <span class="ui">•••</span>) tikken › <b>Beheer extensies</b> › Userscripts aan.</li>
+            <li>Ook goed: in Safari links in de adresbalk op <span class="ui icon"><svg class="pm" viewBox="0 0 20 20" aria-label="paginamenu-icoon"><rect x="5" y="2.5" width="10" height="9" rx="2"/><path d="M4 14.5h12M4 17.5h12"/></svg></span> tikken (op oudere iPhones <span class="ui">aA</span>) › <b>Beheer extensies</b> › Userscripts aan.</li>
           </ul></details>
         </div>
       </li>
@@ -292,25 +339,36 @@ footer p { margin: 0; }
           <p class="why">Nu zet je Toledo Mobile zelf in Userscripts. Lees de 4 stapjes hieronder eerst even, dan tik je op de knop.</p>
           <ol class="do">
             <li><span>Tik op de knop hieronder. Je ziet een pagina <b>vol code</b>. Dat is normaal, die hoef je niet te lezen.</span></li>
-            <li><span>Tik in de adresbalk op <span class="ui">aA</span> of <span class="ui">•••</span> en kies <span class="ui">Userscripts</span>.</span></li>
-            <li><span>Tik op de groene balk <span class="ui">Tap to install</span>, en daarna <b>onderaan</b> op <span class="ui">Install</span>.</span></li>
+            <li><span>Tik in de adresbalk <b>links</b> op <span class="ui icon"><svg class="pm" viewBox="0 0 20 20" aria-label="paginamenu-icoon"><rect x="5" y="2.5" width="10" height="9" rx="2"/><path d="M4 14.5h12M4 17.5h12"/></svg></span> (op oudere iPhones: <span class="ui">aA</span>) en kies <span class="ui">Userscripts</span>.</span></li>
+            <li><span>Tik op de groene balk <span class="ui">Tap to install</span>.</span></li>
+            <li><span>Schuif naar beneden en tik op de blauwe knop <span class="ui">Install</span>.</span></li>
             <li><span>Tik op <span class="ui">‹</span> (terug) om hier verder te gaan.</span></li>
           </ol>
           <a class="act" href="https://raw.githubusercontent.com/vj4542662/toledo-mobile/main/toledo-mobile.user.js" data-go="3"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Installeer Toledo Mobile</a>
-          <div class="mock" aria-hidden="true"><p class="cap">Zo ziet het eruit</p>
-            <div class="pop">
-              <div class="ph"><span></span><span>Userscripts</span><span class="x">✓</span></div>
-              <div class="green">Tap to install</div>
-              <div class="code"></div>
-              <div class="inst hl"><span>Install</span></div>
+          <div class="mock dk" aria-hidden="true"><p class="cap">Zo ziet het eruit</p>
+            <p class="lbl"><i>a</i>Links in de adresbalk</p>
+            <div class="urlbar"><span class="bk">‹</span><span class="url"><span class="pmw hl"><svg class="pm" viewBox="0 0 20 20" aria-label="paginamenu-icoon"><rect x="5" y="2.5" width="10" height="9" rx="2"/><path d="M4 14.5h12M4 17.5h12"/></svg></span><span class="host">raw.githubusercontent.com</span><span class="rl">↻</span></span><span class="more">•••</span></div>
+            <p class="lbl"><i>b</i>In het menu dat opent</p>
+            <div class="dmenu"><div class="mi"><span class="mic">⬇︎</span>Downloads</div><div class="mi"><span class="mic">⧉</span>Beheer extensies</div><div class="mi hl"><span class="mic us">&lt;/&gt;</span>Userscripts</div></div>
+            <p class="lbl"><i>c</i>Tik op de groene balk</p>
+            <div class="usp"><div class="ush"><span></span><b>Userscripts</b><span class="chk">✓</span></div>
+              <div class="ust"><span>▭ ☁︎</span><span>↻ <span class="mtog"></span></span></div>
+              <div class="gbar hl">Userscript Detected: <u>Tap to install</u></div>
             </div>
-            <p class="note">De knop Install staat helemaal onderaan. Het blauwe ✓ bovenaan sluit alleen het venster.</p>
+            <p class="lbl"><i>d</i>Schuif naar beneden en tik op Install</p>
+            <div class="usp"><div class="ush"><span></span><b>Userscripts</b><span class="chk">✓</span></div>
+              <div class="usn">Toledo Mobile</div>
+              <div class="code"></div>
+              <div class="btns"><span class="cn">Cancel</span><span class="in hl">Install</span></div>
+            </div>
+            <p class="warn">Let op: tik <b>niet</b> op het blauwe vinkje bovenaan. Dat sluit het venster zonder te installeren.</p>
           </div>
           <div class="ask"><p>Heb je op Install getikt?</p><div class="two"><button class="yes" type="button">Ja, gelukt</button><button class="no" type="button">Nog niet</button></div></div>
           <button class="next" type="button">Gedaan, naar stap 4</button>
           <details class="help"><summary>Lukt het niet?</summary><ul>
             <li>Geen groene balk? Dan staat Userscripts nog niet aan. Kijk stap 2 nog eens na en tik dan opnieuw op de knop.</li>
-            <li>Zie je <b>Userscripts</b> niet als je op <span class="ui">aA</span> of <span class="ui">•••</span> tikt? Tik dan op <b>Beheer extensies</b> en zet Userscripts aan.</li>
+            <li>Zie je <b>Userscripts</b> niet in het menu? Tik dan op <b>Beheer extensies</b> en zet Userscripts aan.</li>
+            <li>Staat er <b>Tap to re-install</b>? Dan is Toledo Mobile al geïnstalleerd. Je mag meteen door naar stap 4.</li>
             <li>Vraagt Userscripts of het mag werken op deze website? Tik op <b>Sta toe</b>.</li>
           </ul></details>
         </div>
@@ -323,15 +381,16 @@ footer p { margin: 0; }
           <p class="why">Laatste stap! Je opent Toledo, en meteen zie je het als app. Lees eerst even wat je daar doet:</p>
           <ol class="do">
             <li><span>Tik op <b>Open Toledo</b> en log in <b>zoals altijd</b>, op de gewone inlogpagina van KU Leuven.</span></li>
-            <li><span>Tik in Safari op <span class="ui">•••</span> of op het deelicoon <span class="ui">⬆︎</span>, dan op <span class="ui">Zet op beginscherm</span>.</span></li>
-            <li><span>Zet <span class="ui">Open als webapp</span> <b>uit</b> en tik op <span class="ui">Voeg toe</span>.</span></li>
+            <li><span>Tik rechts naast de adresbalk op <span class="ui">•••</span>, dan op <span class="ui">Deel</span>. Scrol naar beneden en tik op <span class="ui">Zet op beginscherm</span>.</span></li>
+            <li><span>Zet <span class="ui" style="box-shadow:0 0 0 2px #b3122e">Open als webapp</span> <b style="color:#b3122e">uit</b> en tik op <span class="ui">Voeg toe</span>.</span></li>
           </ol>
-          <div class="mock" aria-hidden="true"><p class="cap">Zo ziet het eruit</p>
-            <div class="sheet">
-              <div class="sh"><span class="b">Annuleer</span><span>Zet op beginscherm</span><span class="b">Voeg toe</span></div>
-              <div class="addbar"><img src="apple-touch-icon.png" alt=""><span>Toledo</span></div>
-              <div class="grp" style="margin:0 10px 10px;background:#f2f2f7"><div class="r hl"><span>Open als webapp</span><span class="tog" style="background:#d1d1d6"></span></div></div>
+          <div class="mock dk" aria-hidden="true"><p class="cap">Zo ziet het eruit</p>
+            <div class="hs">
+              <div class="hsh"><span class="x">✕</span><b>Zet op beginscherm</b><span class="add">Voeg toe</span></div>
+              <div class="hsr"><span class="t">T</span><span><b>Toledo</b><small>https://toledo.kuleuven.be/portal/</small></span></div>
+              <div class="hsr off-ring"><span>Open als webapp</span><span class="tog off"></span></div>
             </div>
+            <p class="warn ok">Het schuifje moet <b>grijs</b> zijn (uit), zoals hierboven.</p>
             <p class="note">Laat “Open als webapp” uit staan. Anders kan Userscripts niet meedoen.</p>
           </div>
           <a class="act" href="https://toledo.kuleuven.be/portal" data-go="4"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Open Toledo</a>
