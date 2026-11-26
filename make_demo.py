@@ -5,7 +5,7 @@ import re, pathlib, subprocess, os
 root = pathlib.Path(__file__).parent
 repo = root / 'src-repo'
 env = dict(os.environ, PATH='/usr/bin:/bin')
-subprocess.run(['python3', 'build.py'], cwd=repo, env=env, check=True, capture_output=True)
+subprocess.run(['python3', 'build.py'], cwd=repo, env=dict(env, TM_CHANNEL='main'), check=True, capture_output=True)
 js = (repo / 'toledo-mobile.user.js').read_text()
 js = js.split('// ==/UserScript==', 1)[1]
 N = r'(?<![\w.$])'
@@ -19,6 +19,9 @@ reps = [
     (N + r'location\.href = ([^;]+);', r'__TM_GO__(\1);'),
     (r"K \+ '/' \+ loc\.thumbnailUrl", 'loc.thumbnailUrl'),
     (r"K \+ '/' \+ l\.fullImageUrl", 'l.fullImageUrl'),
+    # no hidden frames to the real KURT or Alma sites from the demo
+    (r'function refreshKurt\(force\) \{', 'function refreshKurt(force) { if (TEST) return;'),
+    (r'function openAlma\(href, tile\) \{', 'function openAlma(href, tile) { if (TEST) return __TM_GO__(href);'),
 ]
 for pat, new in reps:
     js, n = re.subn(pat, new, js)

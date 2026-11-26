@@ -52,6 +52,11 @@
         : /githubusercontent|github\.com/.test(s) ? 'Hier installeer je de update in Userscripts. In de demo kan dat niet.'
           : /maps\.|google\./.test(s) ? 'Dit opent de route in Kaarten.'
             : /bbcswebdav|\.pdf|download/.test(s) ? 'Hier opent het bestand (pdf, slides…) meteen op je gsm.'
+              : /alma\.be/.test(s) ? 'Alma toont het menu van vandaag. Dat werkt in de echte app, niet in de demo.'
+                : /print\./.test(s) ? 'Printen werkt in de echte app, niet in de demo.'
+                  : /usc\.|sport/.test(s) ? 'Sport werkt in de echte app, niet in de demo.'
+                    : /limo|lib\.kuleuven|kuleuven\.primo|exlibris/.test(s) ? 'LIMO (de bib-catalogus) werkt in de echte app, niet in de demo.'
+                      : /attest|kuloket/.test(s) ? 'Attesten werkt in de echte app, niet in de demo.'
               : 'Dit opent een pagina buiten de demo.';
     demoToast(what);
   };
