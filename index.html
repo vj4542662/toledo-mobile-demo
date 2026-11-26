@@ -489,7 +489,7 @@ footer p { margin: 0; }
     el.querySelector('.head').addEventListener('click', function () { openStep(st.open === n ? 0 : n, false); });
     el.querySelector('.next').addEventListener('click', function () { markDone(n); });
     var go = el.querySelector('[data-go]');
-    if (go) go.addEventListener('click', function () { st.pend = n; save(); setTimeout(render, 400); });
+    if (go) go.addEventListener('click', function () { st.pend = n; away = true; save(); setTimeout(render, 400); });
     var ask = el.querySelector('.ask');
     if (ask) {
       ask.querySelector('.yes').addEventListener('click', function () { markDone(n); });
@@ -503,7 +503,9 @@ footer p { margin: 0; }
   document.getElementById('again').addEventListener('click', function () { st = { done: [], open: 1, pend: 0 }; save(); render(); steps[0].scrollIntoView({ block: 'start', behavior: 'smooth' }); });
 
   // coming back from the App Store, Settings or the install page: ask how it went
-  function back() { render(); if (st.pend) { var el = steps[st.pend - 1]; if (el) { st.open = st.pend; render(); setTimeout(function () { el.querySelector('.ask').scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 80); } } }
+  // only scroll when the visitor tapped a step button on this page and now comes back to it
+  var away = false;
+  function back() { render(); if (st.pend && away) { away = false; var el = steps[st.pend - 1]; if (el) { st.open = st.pend; render(); setTimeout(function () { el.querySelector('.ask').scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 80); } } }
   window.addEventListener('pageshow', function (e) { if (e.persisted) { try { st = JSON.parse(localStorage.getItem(KEY)) || st; } catch (x) {} back(); } });
   document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') back(); });
 
@@ -523,8 +525,10 @@ footer p { margin: 0; }
 
   if (!st.done.length && !st.open) st.open = 1;
   if (location.hash === '#installeer' && current()) st.open = current();
+  // a fresh visit starts at the top of the page (only the demo's Installeer button jumps to the steps)
+  try { history.scrollRestoration = 'manual'; } catch (e) {}
+  if (location.hash !== '#installeer') window.scrollTo(0, 0);
   render();
-  if (st.pend) back();
 })();
 </script>
 </body>
