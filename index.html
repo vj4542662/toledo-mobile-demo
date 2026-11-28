@@ -207,9 +207,9 @@ svg.pm { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-wid
 .hsr .t + span { flex: 1; min-width: 0; }
 .hsr small { display: block; color: #8e8e93; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-.must { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; align-items: start; background: var(--warm-tint); border: 1.5px solid var(--warm); border-radius: 16px; padding: 13px 14px; font-size: 15px; line-height: 1.45; }
-.must b { display: block; font-size: 16px; margin-bottom: 2px; }
-.must .mi1 { width: 30px; height: 30px; border-radius: 50%; background: var(--warm); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 17px; }
+.must { margin: 0; display: flex; gap: 10px; align-items: center; background: var(--warm-tint); border-radius: 14px; padding: 10px 12px; font-weight: 700; font-size: 15px; }
+.must b { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--warm); color: #fff; display: grid; place-items: center; font-size: 14px; }
+.path { margin: 0; font-weight: 700; font-size: 15.5px; line-height: 1.5; }
 /* done */
 .finish { display: none; text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px 18px; margin-top: 14px; gap: 10px; }
 .finish.on { display: grid; }
@@ -242,193 +242,124 @@ footer p { margin: 0; }
 
   <section class="hero">
     <h1>Toledo als echte app op je iPhone.</h1>
-    <p class="lead">Je vakken, agenda, deadlines, punten en een studieplek reserveren: <b>alles twee tikken ver</b>. Gratis, en sneller geïnstalleerd dan je denkt.</p>
-    <ul class="chips" aria-label="Goed om te weten">
-      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Gratis</li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Ongeveer 3 minuten</li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Geen nieuw account</li>
-      <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Altijd weer weg te doen</li>
-    </ul>
+    <p class="lead">Je vakken, agenda, deadlines en studieplek in één app. <b>Gratis</b>, en in 3 minuten geïnstalleerd.</p>
 
     <div class="notice" id="nPhone">
       <h3>Open deze pagina op je iPhone</h3>
-      <div class="qr"><img src="qr.svg" alt="QR-code naar deze pagina"><p>Toledo Mobile werkt in Safari op een <b>iPhone</b> (of iPad). Richt de camera van je iPhone op deze code en tik op de link die verschijnt.</p></div>
+      <div class="qr"><img src="qr.svg" alt="QR-code naar deze pagina"><p>Scan de code met de camera van je iPhone. Toledo Mobile werkt in Safari op iPhone en iPad.</p></div>
     </div>
     <div class="notice" id="nSafari">
       <h3>Open deze pagina in Safari</h3>
-      <p>Je zit nu in een andere app of browser. Toledo Mobile werkt alleen in <b>Safari</b>. Kopieer de link, open Safari en plak hem in de adresbalk.</p>
+      <p>Toledo Mobile werkt alleen in <b>Safari</b>. Kopieer de link en plak hem in Safari.</p>
       <button class="small-btn" type="button" id="copy">Kopieer de link</button>
     </div>
 
     <div class="choose">
-      <a class="big" href="demo/">
-        <span class="ic"><svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.6"/><path d="M10.5 18.5h3"/></svg></span>
-        <span class="tx"><b>Probeer eerst de demo</b><small>Zie hoe het werkt, met een verzonnen student. Niets installeren.</small></span>
-        <svg class="ar" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-      </a>
       <a class="big main" href="#installeer">
         <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg></span>
-        <span class="tx"><b>Installeer het op je iPhone</b><small>4 korte stappen. Deze pagina helpt je bij elke stap.</small></span>
+        <span class="tx"><b>Installeer op je iPhone</b><small>4 korte stappen</small></span>
+        <svg class="ar" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <a class="big" href="demo/">
+        <span class="ic"><svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.6"/><path d="M10.5 18.5h3"/></svg></span>
+        <span class="tx"><b>Bekijk eerst de demo</b><small>Niets installeren</small></span>
         <svg class="ar" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
       </a>
     </div>
   </section>
 
   <section class="install" id="installeer" aria-labelledby="h-inst">
-    <h2 id="h-inst">Zo installeer je het</h2>
-    <p class="calm">Geen zorgen, je hoeft <b>niets technisch</b> te kunnen. Tik op de knoppen en doe wat erbij staat. Deze pagina <b>onthoudt waar je zit</b>: je mag gerust even naar een andere app gaan en terugkomen.</p>
+    <h2 id="h-inst">Installeren</h2>
 
     <div class="prog" aria-live="polite">
-      <div class="row"><span id="progTxt">Stap 1 van 4</span><span id="progSub">nog ongeveer 3 minuten</span></div>
+      <div class="row"><span id="progTxt">Stap 1 van 4</span><span id="progSub"></span></div>
       <div class="track" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
     </div>
 
     <ol class="steps" id="steps">
-      <!-- 1 -->
       <li class="step" data-step="1">
-        <button class="head" type="button" aria-expanded="false"><span class="num">1</span><span><b>Download en open Userscripts</b><small>ongeveer 1 minuut</small></span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+        <button class="head" type="button" aria-expanded="false"><span class="num">1</span><span><b>Download en open Userscripts</b><small></small></span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
         <div class="body">
-          <p class="why">Userscripts is een gratis app die kleine extraatjes toevoegt aan Safari. Toledo Mobile is zo'n extraatje. Je hebt de app maar één keer nodig.</p>
           <a class="act" href="https://apps.apple.com/app/userscripts/id1463298887" data-go="1"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Open in de App Store</a>
           <ol class="do">
-            <li><span>Tik in de App Store op <span class="ui">Download</span> (of op het wolkje).</span></li>
-            <li><span>Tik in de App Store op <span class="ui">Open</span>, zodat Userscripts <b>één keer</b> opent.</span></li>
-            <li><span>Kom terug naar Safari. Deze pagina staat nog open.</span></li>
+            <li><span>Tik op <span class="ui">Download</span>.</span></li>
+            <li><span>Tik daarna op <span class="ui">Open</span>.</span></li>
           </ol>
-          <div class="must"><span class="mi1">!</span><span><b>Belangrijk: open Userscripts één keer</b>Alleen downloaden is niet genoeg. Open de app één keer, anders kan je hem in stap 2 niet aanzetten. Je hoeft er verder niets in te doen: openen en weer sluiten is genoeg.</span></div>
-          <div class="mock" aria-hidden="true"><p class="cap">Zo ziet het eruit</p>
-            <div class="grp"><div class="r app"><span class="aic">&lt;/&gt;</span><span><b>Userscripts</b><small>Justin Wasack</small></span><span class="get">Download</span></div></div>
-          </div>
-          <div class="ask"><p>Heb je Userscripts gedownload én één keer geopend?</p><div class="two"><button class="yes" type="button">Ja, gelukt</button><button class="no" type="button">Nog niet</button></div></div>
-          <button class="next" type="button">Geopend, naar stap 2</button>
-          <details class="help"><summary>Lukt het niet?</summary><ul>
-            <li>Opent de App Store niet? Open hem zelf en zoek op <b>Userscripts</b>. Kies die van <b>Justin Wasack</b>.</li>
-            <li>Vraagt je iPhone om Face ID of je wachtwoord van je Apple ID? Dat is normaal bij elke download, ook bij gratis apps.</li>
-          </ul></details>
+          <p class="must"><b>!</b>Open de app één keer, anders lukt stap 2 niet.</p>
+          <button class="next" type="button">Gedaan, naar stap 2</button>
         </div>
       </li>
 
-      <!-- 2 -->
       <li class="step" data-step="2">
-        <button class="head" type="button" aria-expanded="false"><span class="num">2</span><span><b>Zet Userscripts aan in Safari</b><small>ongeveer 1 minuut</small></span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+        <button class="head" type="button" aria-expanded="false"><span class="num">2</span><span><b>Zet Userscripts aan</b><small></small></span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
         <div class="body">
-          <p class="why">Zo mag Userscripts zijn werk doen in Safari. Dit is een schakelaar in je Instellingen, daar kan geen knop je naartoe brengen. Volg gewoon de weg hieronder.</p>
-          <ol class="do">
-            <li><span>Open de app <b>Instellingen</b> (het grijze tandwiel).</span></li>
-            <li><span>Scrol helemaal naar onder en tik op <span class="ui">Apps</span>, dan <span class="ui">Safari</span>.</span></li>
-            <li><span>Tik op <span class="ui">Extensies</span>, dan op <span class="ui">Userscripts</span>.</span></li>
-            <li><span>Zet <span class="ui">Sta extensie toe</span> aan (groen).</span></li>
-            <li><span>Tik onderaan op <span class="ui">Andere websites</span> en kies <span class="ui">Sta toe</span>.</span></li>
-          </ol>
-          <div class="mock" aria-hidden="true"><p class="cap">Zo ziet het eruit</p>
-            <p class="crumbs">Instellingen › Apps › Safari › Extensies › Userscripts</p>
+          <p class="path">Instellingen › Apps › Safari › Extensies › Userscripts</p>
+          <div class="mock" aria-hidden="true">
             <div class="grp"><div class="r hl"><span>Sta extensie toe</span><span class="tog"></span></div></div>
             <div class="gap"></div>
             <div class="grp"><div class="r hl"><span>Andere websites</span><span class="v">Sta toe ›</span></div></div>
           </div>
-          <div class="tip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>Klaar? Ga terug naar <b>Safari</b>. Deze pagina wacht op je.</span></div>
           <button class="next" type="button">Gedaan, naar stap 3</button>
-          <details class="help"><summary>Lukt het niet?</summary><ul>
-            <li>Geen <b>Apps</b> in je Instellingen? Dan heb je een oudere iOS. Ga dan naar <b>Instellingen › Safari › Extensies</b>.</li>
-            <li>Staat Userscripts niet in de lijst met extensies? Open de app Userscripts eerst één keer (stap 1) en kijk opnieuw.</li>
-            <li>Ook goed: in Safari links in de adresbalk op <span class="ui icon"><svg class="pm" viewBox="0 0 20 20" aria-label="paginamenu-icoon"><rect x="5" y="2.5" width="10" height="9" rx="2"/><path d="M4 14.5h12M4 17.5h12"/></svg></span> tikken (op oudere iPhones <span class="ui">aA</span>) › <b>Beheer extensies</b> › Userscripts aan.</li>
-          </ul></details>
         </div>
       </li>
 
-      <!-- 3 -->
       <li class="step" data-step="3">
-        <button class="head" type="button" aria-expanded="false"><span class="num">3</span><span><b>Installeer Toledo Mobile</b><small>ongeveer 30 seconden</small></span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+        <button class="head" type="button" aria-expanded="false"><span class="num">3</span><span><b>Installeer Toledo Mobile</b><small></small></span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
         <div class="body">
-          <p class="why">Nu zet je Toledo Mobile zelf in Userscripts. Lees de 4 stapjes hieronder eerst even, dan tik je op de knop.</p>
-          <ol class="do">
-            <li><span>Tik op de knop hieronder. Je ziet een pagina <b>vol code</b>. Dat is normaal, die hoef je niet te lezen.</span></li>
-            <li><span>Tik in de adresbalk <b>links</b> op <span class="ui icon"><svg class="pm" viewBox="0 0 20 20" aria-label="paginamenu-icoon"><rect x="5" y="2.5" width="10" height="9" rx="2"/><path d="M4 14.5h12M4 17.5h12"/></svg></span> (op oudere iPhones: <span class="ui">aA</span>) en kies <span class="ui">Userscripts</span>.</span></li>
-            <li><span>Tik op de groene balk <span class="ui">Tap to install</span>.</span></li>
-            <li><span>Schuif naar beneden en tik op de blauwe knop <span class="ui">Install</span>.</span></li>
-            <li><span>Tik op <span class="ui">‹</span> (terug) om hier verder te gaan.</span></li>
-          </ol>
           <a class="act" href="https://raw.githubusercontent.com/vj4542662/toledo-mobile/main/toledo-mobile.user.js" data-go="3"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Installeer Toledo Mobile</a>
-          <div class="mock dk" aria-hidden="true"><p class="cap">Zo ziet het eruit</p>
-            <p class="lbl"><i>a</i>Links in de adresbalk</p>
-            <div class="urlbar"><span class="bk">‹</span><span class="url"><span class="pmw hl"><svg class="pm" viewBox="0 0 20 20" aria-label="paginamenu-icoon"><rect x="5" y="2.5" width="10" height="9" rx="2"/><path d="M4 14.5h12M4 17.5h12"/></svg></span><span class="host">raw.githubusercontent.com</span><span class="rl">↻</span></span><span class="more">•••</span></div>
-            <p class="lbl"><i>b</i>In het menu dat opent</p>
-            <div class="dmenu"><div class="mi"><span class="mic">⬇︎</span>Downloads</div><div class="mi"><span class="mic">⧉</span>Beheer extensies</div><div class="mi hl"><span class="mic us">&lt;/&gt;</span>Userscripts</div></div>
-            <p class="lbl"><i>c</i>Tik op de groene balk</p>
+          <ol class="do">
+            <li><span>Tik links in de adresbalk op <span class="ui icon"><svg class="pm" viewBox="0 0 20 20" aria-label="paginamenu-icoon"><rect x="5" y="2.5" width="10" height="9" rx="2"/><path d="M4 14.5h12M4 17.5h12"/></svg></span> › <span class="ui">Userscripts</span>.</span></li>
+            <li><span>Tik op de groene balk.</span></li>
+            <li><span>Scrol naar beneden en tik op <span class="ui">Install</span>.</span></li>
+          </ol>
+          <div class="mock dk" aria-hidden="true">
             <div class="usp"><div class="ush"><span></span><b>Userscripts</b><span class="chk">✓</span></div>
-              <div class="ust"><span>▭ ☁︎</span><span>↻ <span class="mtog"></span></span></div>
               <div class="gbar hl">Userscript Detected: <u>Tap to install</u></div>
-            </div>
-            <p class="lbl"><i>d</i>Schuif naar beneden en tik op Install</p>
-            <div class="usp"><div class="ush"><span></span><b>Userscripts</b><span class="chk">✓</span></div>
-              <div class="usn">Toledo Mobile</div>
-              <div class="code"></div>
+              <div class="code" style="margin-top:12px"></div>
               <div class="btns"><span class="cn">Cancel</span><span class="in hl">Install</span></div>
             </div>
-            <p class="warn">Let op: tik <b>niet</b> op het blauwe vinkje bovenaan. Dat sluit het venster zonder te installeren.</p>
           </div>
-          <div class="ask"><p>Heb je op Install getikt?</p><div class="two"><button class="yes" type="button">Ja, gelukt</button><button class="no" type="button">Nog niet</button></div></div>
           <button class="next" type="button">Gedaan, naar stap 4</button>
-          <details class="help"><summary>Lukt het niet?</summary><ul>
-            <li>Geen groene balk? Dan staat Userscripts nog niet aan. Kijk stap 2 nog eens na en tik dan opnieuw op de knop.</li>
-            <li>Zie je <b>Userscripts</b> niet in het menu? Tik dan op <b>Beheer extensies</b> en zet Userscripts aan.</li>
-            <li>Staat er <b>Tap to re-install</b>? Dan is Toledo Mobile al geïnstalleerd. Je mag meteen door naar stap 4.</li>
-            <li>Vraagt Userscripts of het mag werken op deze website? Tik op <b>Sta toe</b>.</li>
-          </ul></details>
         </div>
       </li>
 
-      <!-- 4 -->
       <li class="step" data-step="4">
-        <button class="head" type="button" aria-expanded="false"><span class="num">4</span><span><b>Log in en zet het op je beginscherm</b><small>ongeveer 1 minuut</small></span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+        <button class="head" type="button" aria-expanded="false"><span class="num">4</span><span><b>Zet het op je beginscherm</b><small></small></span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
         <div class="body">
-          <p class="why">Laatste stap! Je opent Toledo, en meteen zie je het als app. Lees eerst even wat je daar doet:</p>
+          <a class="act" href="https://toledo.kuleuven.be/portal" data-go="4"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Open Toledo</a>
           <ol class="do">
-            <li><span>Tik op <b>Open Toledo</b> en log in <b>zoals altijd</b>, op de gewone inlogpagina van KU Leuven.</span></li>
-            <li><span>Tik rechts naast de adresbalk op <span class="ui">•••</span>, dan op <span class="ui">Deel</span>. Scrol naar beneden en tik op <span class="ui">Zet op beginscherm</span>.</span></li>
-            <li><span>Zet <span class="ui" style="box-shadow:0 0 0 2px #b3122e">Open als webapp</span> <b style="color:#b3122e">uit</b> en tik op <span class="ui">Voeg toe</span>.</span></li>
+            <li><span>Log in zoals altijd.</span></li>
+            <li><span><span class="ui">•••</span> › <span class="ui">Deel</span> › <span class="ui">Zet op beginscherm</span></span></li>
+            <li><span>Zet <span class="ui" style="box-shadow:0 0 0 2px #b3122e">Open als webapp</span> <b style="color:#b3122e">uit</b> › <span class="ui">Voeg toe</span></span></li>
           </ol>
-          <div class="mock dk" aria-hidden="true"><p class="cap">Zo ziet het eruit</p>
+          <div class="mock dk" aria-hidden="true">
             <div class="hs">
               <div class="hsh"><span class="x">✕</span><b>Zet op beginscherm</b><span class="add">Voeg toe</span></div>
-              <div class="hsr"><span class="t">T</span><span><b>Toledo</b><small>https://toledo.kuleuven.be/portal/</small></span></div>
               <div class="hsr off-ring"><span>Open als webapp</span><span class="tog off"></span></div>
             </div>
-            <p class="warn ok">Het schuifje moet <b>grijs</b> zijn (uit), zoals hierboven.</p>
-            <p class="note">Laat “Open als webapp” uit staan. Anders kan Userscripts niet meedoen.</p>
           </div>
-          <a class="act" href="https://toledo.kuleuven.be/portal" data-go="4"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Open Toledo</a>
-          <div class="ask"><p>Zie je Toledo nu als app?</p><div class="two"><button class="yes" type="button">Ja, gelukt</button><button class="no" type="button">Nog niet</button></div></div>
-          <button class="next" type="button">Gedaan, alles klaar</button>
-          <details class="help"><summary>Lukt het niet?</summary><ul>
-            <li>Zie je nog de gewone Toledo? Ververs de pagina één keer. Helpt dat niet, kijk dan stap 2 na: <b>Andere websites</b> moet op <b>Sta toe</b> staan.</li>
-            <li>Vraagt Userscripts om toestemming voor toledo.kuleuven.be? Tik op <b>Sta toe</b> (of <b>Altijd toestaan</b>).</li>
-            <li>Je logt altijd in op de echte KU Leuven-pagina. Toledo Mobile vraagt nooit zelf je wachtwoord.</li>
-          </ul></details>
+          <button class="next" type="button">Klaar</button>
         </div>
       </li>
     </ol>
 
     <div class="finish" id="finish" role="status">
       <div class="yay"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-      <h3>Klaar! Toledo Mobile staat op je iPhone</h3>
-      <p>Open Toledo voortaan via het nieuwe icoon op je beginscherm. Komt er een nieuwe versie, dan meldt de app dat zelf en legt ze uit hoe je bijwerkt.</p>
-      <button class="linkish" type="button" id="again">Stappen opnieuw bekijken</button>
+      <h3>Klaar!</h3>
+      <p>Open Toledo voortaan via het icoon op je beginscherm.</p>
+      <button class="linkish" type="button" id="again">Opnieuw beginnen</button>
     </div>
   </section>
 
   <section class="faq" aria-labelledby="h-faq">
     <h2 id="h-faq">Vragen</h2>
-    <details><summary>Is dit veilig?</summary><p>Toledo Mobile verandert alleen hoe Toledo, KU Loket en KURT eruitzien op je eigen gsm. Je logt in op de gewone KU Leuven-pagina, zoals altijd. Je maakt geen nieuw account aan en Toledo Mobile vraagt nooit je wachtwoord. De code is openbaar op <a href="https://github.com/vj4542662/toledo-mobile">GitHub</a>.</p></details>
-    <details><summary>Is dit van KU Leuven?</summary><p>Nee. Toledo Mobile is een onofficieel project van een student. Het heeft niets te maken met KU Leuven of Toledo en wordt niet door hen gemaakt, gecontroleerd of ondersteund. Heb je een probleem met Toledo zelf, dan helpt de gewone Toledo-hulp je verder.</p></details>
-    <details><summary>Kan ik het weer verwijderen?</summary><p>Ja, altijd. Verwijder de app Userscripts (of zet de extensie uit in Instellingen) en Toledo ziet er weer uit zoals vroeger. Er blijft niets achter.</p></details>
-    <details><summary>Werkt het op Android of op een computer?</summary><p>Nee, Toledo Mobile is gemaakt voor Safari op iPhone (en iPad). De <a href="demo/">demo</a> kan je wel overal bekijken.</p></details>
-    <details><summary>Waarom staat het niet gewoon in de App Store?</summary><p>Toledo Mobile is geen aparte app, maar een laagje over de echte Toledo-website. Zo log je in bij KU Leuven zelf en blijft alles van jou. Daarvoor is Userscripts nodig.</p></details>
-    <details><summary>Hoe krijg ik nieuwe versies?</summary><p>De app laat je zelf weten wanneer er een update is, met de stappen erbij. Dat duurt een paar tikken.</p></details>
+    <details><summary>Is dit veilig?</summary><p>Je logt in op de gewone KU Leuven-pagina, zoals altijd. Toledo Mobile vraagt nooit je wachtwoord. De code is openbaar op <a href="https://github.com/vj4542662/toledo-mobile">GitHub</a>.</p></details>
+    <details><summary>Lukt een stap niet?</summary><p>Geen groene balk in stap 3? Kijk stap 2 na. Zie je in Toledo nog de gewone website? Ververs de pagina en kijk of <b>Andere websites</b> op <b>Sta toe</b> staat.</p></details>
+    <details><summary>Kan ik het weer verwijderen?</summary><p>Ja. Verwijder de app Userscripts en Toledo is weer zoals vroeger.</p></details>
   </section>
 
   <footer>
-    <p><b>Onofficieel.</b> Toledo Mobile is een gratis project van een student en heeft niets te maken met KU Leuven of Toledo. Namen van diensten worden alleen gebruikt om te zeggen waarmee de app werkt.</p>
+    <p><b>Onofficieel.</b> Toledo Mobile is een gratis project van een student en heeft niets te maken met KU Leuven of Toledo.</p>
     <p><a href="demo/">Demo</a> · <a href="https://github.com/vj4542662/toledo-mobile">Broncode</a></p>
   </footer>
 </main>
@@ -464,7 +395,7 @@ footer p { margin: 0; }
       bars[i].className = isDone(i + 1) ? 'done' : (i + 1 === cur ? 'now' : '');
     }
     document.getElementById('progTxt').textContent = cur ? 'Stap ' + cur + ' van ' + N : 'Alle stappen gelukt';
-    document.getElementById('progSub').textContent = cur ? mins[cur] : 'klaar!';
+    document.getElementById('progSub').textContent = cur ? '' : 'klaar!';
     document.getElementById('finish').classList.toggle('on', !cur);
   }
   steps.forEach(function (el) { el.dataset.time = el.querySelector('.head small').textContent; });
@@ -505,7 +436,7 @@ footer p { margin: 0; }
   // coming back from the App Store, Settings or the install page: ask how it went
   // only scroll when the visitor tapped a step button on this page and now comes back to it
   var away = false;
-  function back() { render(); if (st.pend && away) { away = false; var el = steps[st.pend - 1]; if (el) { st.open = st.pend; render(); setTimeout(function () { el.querySelector('.ask').scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 80); } } }
+  function back() { render(); if (st.pend && away) { away = false; var el = steps[st.pend - 1]; if (el) { st.open = st.pend; render(); setTimeout(function () { el.scrollIntoView({ block: 'start', behavior: 'smooth' }); }, 80); } } }
   window.addEventListener('pageshow', function (e) { if (e.persisted) { try { st = JSON.parse(localStorage.getItem(KEY)) || st; } catch (x) {} back(); } });
   document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') back(); });
 
