@@ -210,6 +210,9 @@ svg.pm { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-wid
 .must { margin: 0; display: flex; gap: 10px; align-items: center; background: var(--warm-tint); border-radius: 14px; padding: 10px 12px; font-weight: 700; font-size: 15px; }
 .must b { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--warm); color: #fff; display: grid; place-items: center; font-size: 14px; }
 .path { margin: 0; font-weight: 700; font-size: 15.5px; line-height: 1.5; }
+.down { color: var(--warm); white-space: nowrap; }
+.scr { margin: 12px 14px 0; text-align: center; color: #0a84ff; font-weight: 800; font-size: 14px; padding: 8px; border: 2px dashed #0a84ff; border-radius: 10px; animation: nudge 1.4s ease-in-out infinite; }
+@keyframes nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
 /* done */
 .finish { display: none; text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px 18px; margin-top: 14px; gap: 10px; }
 .finish.on { display: grid; }
@@ -315,12 +318,13 @@ footer p { margin: 0; }
             <li><span>Open de link hierboven. Hij opent in een nieuw tabblad.</span></li>
             <li><span>Tik links in de adresbalk op <span class="ui icon"><svg class="pm" viewBox="0 0 20 20" aria-label="paginamenu-icoon"><rect x="5" y="2.5" width="10" height="9" rx="2"/><path d="M4 14.5h12M4 17.5h12"/></svg></span> › <span class="ui">Userscripts</span>.</span></li>
             <li><span>Tik op de groene balk.</span></li>
-            <li><span>Scrol naar beneden en tik op <span class="ui">Install</span>.</span></li>
+            <li><span><b class="down">↓ Scrol helemaal naar beneden ↓</b> en tik daar op de blauwe knop <span class="ui">Install</span>.</span></li>
           </ol>
           <div class="mock dk" aria-hidden="true">
             <div class="usp"><div class="ush"><span></span><b>Userscripts</b><span class="chk">✓</span></div>
               <div class="gbar hl">Userscript Detected: <u>Tap to install</u></div>
-              <div class="code" style="margin-top:12px"></div>
+              <div class="code" style="margin-top:12px;height:58px"></div>
+              <div class="scr">↓ scrol naar beneden ↓</div>
               <div class="btns"><span class="cn">Cancel</span><span class="in hl">Install</span></div>
             </div>
           </div>
